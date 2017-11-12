@@ -6,7 +6,7 @@ ApplicationWindow {
     visible: true
     width: 640
     height: 480
-    title: qsTr("Hello World")
+    title: qsTr("AlphaVantage TimeSeries")
 
     SwipeView {
         id: swipeView
@@ -16,17 +16,11 @@ ApplicationWindow {
         Page1 {
         }
 
-        Page {
-            Label {
-                text: qsTr("Second page")
-                anchors.centerIn: parent
-            }
+        Page2 {
+
         }
-        Page {
-            Label {
-                text: qsTr("Third page")
-                anchors.centerIn: parent
-            }
+        Page3 {
+
         }
 
     }

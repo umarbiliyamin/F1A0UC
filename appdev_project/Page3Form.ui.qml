@@ -12,9 +12,9 @@ Item {
         Text {
             id: text1
             color: "#e91e1e"
-            text: qsTr("First Time Series")
-            font.italic: true
+            text: qsTr("Third Time Series")
             font.pointSize: 20
+            font.italic: true
         }
     }
 
