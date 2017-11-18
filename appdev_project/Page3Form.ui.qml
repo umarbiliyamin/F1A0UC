@@ -12,7 +12,7 @@ Item {
         Text {
             id: text1
             color: "#e91e1e"
-            text: qsTr("Third Time Series")
+            text: qsTr("Digital Currencies Market Cap - Daily")
             font.pointSize: 20
             font.italic: true
         }

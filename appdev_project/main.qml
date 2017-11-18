@@ -29,13 +29,13 @@ ApplicationWindow {
         id: tabBar
         currentIndex: swipeView.currentIndex
         TabButton {
-            text: qsTr("TimeSeries1")
+            text: qsTr("BitCoin - HUF")
         }
         TabButton {
-            text: qsTr("TimeSeries2")
+            text: qsTr("BitCoin Volume")
         }
         TabButton {
-            text: qsTr("TimeSeries3")
+            text: qsTr("BitCoin Market Cap")
         }
     }
 }

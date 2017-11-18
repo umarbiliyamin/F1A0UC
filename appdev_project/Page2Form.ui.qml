@@ -12,7 +12,7 @@ Item {
         Text {
             id: text1
             color: "#e91e1e"
-            text: qsTr("Second Time Series")
+            text: qsTr("Digital Currencies Volume - Daily")
             font.italic: true
             font.pointSize: 20
         }

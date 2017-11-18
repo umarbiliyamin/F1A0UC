@@ -1,0 +1,23 @@
+#ifndef NETWORKMANAGER_H
+#define NETWORKMANAGER_H
+
+#include <QNetworkAccessManager>
+#include <QObject>
+
+//header file providing definitions for the functions, signals and slots
+class NetworkManager : public QObject
+{
+    Q_OBJECT
+
+    QNetworkAccessManager* manager; //create a pointer
+public:
+    explicit NetworkManager(QObject *parent = nullptr);
+    void loadWebPage();
+
+signals:
+
+public slots:
+    void replyFinished(QNetworkReply *reply);
+};
+
+#endif // NETWORKMANAGER_H
