@@ -1,6 +1,8 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.3
+import QtCharts 2.2
+
 
 ApplicationWindow {
     visible: true
@@ -14,6 +16,8 @@ ApplicationWindow {
         currentIndex: tabBar.currentIndex
 
         Page1 {
+
+
         }
 
         Page2 {
@@ -22,6 +26,8 @@ ApplicationWindow {
         Page3 {
 
         }
+
+
 
     }
 

@@ -103,6 +103,8 @@ Makefile: ../appdev_project/appdev_project.pro E:/Qt/5.9.2/mingw53_32/mkspecs/wi
 		E:/Qt/5.9.2/mingw53_32/mkspecs/modules/qt_lib_bluetooth.pri \
 		E:/Qt/5.9.2/mingw53_32/mkspecs/modules/qt_lib_bluetooth_private.pri \
 		E:/Qt/5.9.2/mingw53_32/mkspecs/modules/qt_lib_bootstrap_private.pri \
+		E:/Qt/5.9.2/mingw53_32/mkspecs/modules/qt_lib_charts.pri \
+		E:/Qt/5.9.2/mingw53_32/mkspecs/modules/qt_lib_charts_private.pri \
 		E:/Qt/5.9.2/mingw53_32/mkspecs/modules/qt_lib_concurrent.pri \
 		E:/Qt/5.9.2/mingw53_32/mkspecs/modules/qt_lib_concurrent_private.pri \
 		E:/Qt/5.9.2/mingw53_32/mkspecs/modules/qt_lib_core.pri \
@@ -207,6 +209,7 @@ Makefile: ../appdev_project/appdev_project.pro E:/Qt/5.9.2/mingw53_32/mkspecs/wi
 		E:/Qt/5.9.2/mingw53_32/mkspecs/features/resources.prf \
 		E:/Qt/5.9.2/mingw53_32/mkspecs/features/moc.prf \
 		E:/Qt/5.9.2/mingw53_32/mkspecs/features/win32/opengl.prf \
+		E:/Qt/5.9.2/mingw53_32/mkspecs/features/uic.prf \
 		E:/Qt/5.9.2/mingw53_32/mkspecs/features/qmake_use.prf \
 		E:/Qt/5.9.2/mingw53_32/mkspecs/features/file_copies.prf \
 		E:/Qt/5.9.2/mingw53_32/mkspecs/features/win32/windows.prf \
@@ -217,6 +220,8 @@ Makefile: ../appdev_project/appdev_project.pro E:/Qt/5.9.2/mingw53_32/mkspecs/wi
 		../appdev_project/appdev_project.pro \
 		E:/Qt/5.9.2/mingw53_32/lib/qtmaind.prl \
 		E:/Qt/5.9.2/mingw53_32/lib/Qt5Quick.prl \
+		E:/Qt/5.9.2/mingw53_32/lib/Qt5Charts.prl \
+		E:/Qt/5.9.2/mingw53_32/lib/Qt5Widgets.prl \
 		E:/Qt/5.9.2/mingw53_32/lib/Qt5Gui.prl \
 		E:/Qt/5.9.2/mingw53_32/lib/Qt5Qml.prl \
 		E:/Qt/5.9.2/mingw53_32/lib/Qt5Network.prl \
@@ -264,6 +269,8 @@ E:/Qt/5.9.2/mingw53_32/mkspecs/modules/qt_lib_axserver_private.pri:
 E:/Qt/5.9.2/mingw53_32/mkspecs/modules/qt_lib_bluetooth.pri:
 E:/Qt/5.9.2/mingw53_32/mkspecs/modules/qt_lib_bluetooth_private.pri:
 E:/Qt/5.9.2/mingw53_32/mkspecs/modules/qt_lib_bootstrap_private.pri:
+E:/Qt/5.9.2/mingw53_32/mkspecs/modules/qt_lib_charts.pri:
+E:/Qt/5.9.2/mingw53_32/mkspecs/modules/qt_lib_charts_private.pri:
 E:/Qt/5.9.2/mingw53_32/mkspecs/modules/qt_lib_concurrent.pri:
 E:/Qt/5.9.2/mingw53_32/mkspecs/modules/qt_lib_concurrent_private.pri:
 E:/Qt/5.9.2/mingw53_32/mkspecs/modules/qt_lib_core.pri:
@@ -368,6 +375,7 @@ E:/Qt/5.9.2/mingw53_32/mkspecs/features/qt.prf:
 E:/Qt/5.9.2/mingw53_32/mkspecs/features/resources.prf:
 E:/Qt/5.9.2/mingw53_32/mkspecs/features/moc.prf:
 E:/Qt/5.9.2/mingw53_32/mkspecs/features/win32/opengl.prf:
+E:/Qt/5.9.2/mingw53_32/mkspecs/features/uic.prf:
 E:/Qt/5.9.2/mingw53_32/mkspecs/features/qmake_use.prf:
 E:/Qt/5.9.2/mingw53_32/mkspecs/features/file_copies.prf:
 E:/Qt/5.9.2/mingw53_32/mkspecs/features/win32/windows.prf:
@@ -378,6 +386,8 @@ E:/Qt/5.9.2/mingw53_32/mkspecs/features/lex.prf:
 ../appdev_project/appdev_project.pro:
 E:/Qt/5.9.2/mingw53_32/lib/qtmaind.prl:
 E:/Qt/5.9.2/mingw53_32/lib/Qt5Quick.prl:
+E:/Qt/5.9.2/mingw53_32/lib/Qt5Charts.prl:
+E:/Qt/5.9.2/mingw53_32/lib/Qt5Widgets.prl:
 E:/Qt/5.9.2/mingw53_32/lib/Qt5Gui.prl:
 E:/Qt/5.9.2/mingw53_32/lib/Qt5Qml.prl:
 E:/Qt/5.9.2/mingw53_32/lib/Qt5Network.prl:
