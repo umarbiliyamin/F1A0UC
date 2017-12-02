@@ -35,8 +35,10 @@ void NetworkManager::replyFinished(QNetworkReply *reply)
 {
     QByteArray webData = reply->readAll();
 
-    QList<QPair<QString,QString>> graphValuesOpen;
+    QList<QPair<QString,QString>> graphValuesHUF;
     QList<QPair<QString,QString>> graphValuesVolume;
+    QList<QPair<QString,QString>> graphValuesUSD;
+
     //QString webDataString = QString(webData);
 
     QJsonDocument doc = QJsonDocument::fromJson(webData);
@@ -55,50 +57,55 @@ void NetworkManager::replyFinished(QNetworkReply *reply)
 
         for (QString k :keys){
             QJsonObject dayValues = timeSeries[k].toObject();
-            QString openValue = dayValues["1a. open (HUF)"].toString();
+            QString hufValue = dayValues["1a. open (HUF)"].toString();
+            QString volume = dayValues["5. volume"].toString();
+            QString usdValue = dayValues["1b. open (USD)"].toString();
 
             QPair<QString,QString> dataItem;
             dataItem.first = k;
-            dataItem.second = openValue;
+            dataItem.second = hufValue;
 
-            graphValuesOpen.append(dataItem);
+            QPair<QString,QString> dataItem2;
+            dataItem2.first = k;
+            dataItem2.second = volume;
+
+            QPair<QString,QString> dataItem3;
+            dataItem3.first = k;
+            dataItem3.second = usdValue;
+
+
+
+            graphValuesHUF.append(dataItem);
+            graphValuesVolume.append(dataItem2);
+            graphValuesUSD.append(dataItem3);
 
             }
 
-//        for (QString k :keys){
-//            QJsonObject dayValues = timeSeries[k].toObject();
-//            QString volume = dayValues["5. volume"].toString();
-
-//            QPair<QString,QString> dataItem;
-//            dataItem.first = k;
-//            dataItem.second = volume;
-
-//            graphValuesVolume.append(dataItem);
-
-//            }
-
-
-//        QStringList keys = rootObject.keys();
-//        for (QString k :keys){
-//            QJsonObject object = rootObject[k].toObject();
-
-//            for (QString childkey : object.keys()){
-
-//                qDebug() << childkey;
-//            }
-//        }
-//    }
-
     }
-    for (int i=0; i<graphValuesOpen.size(); i++){
-        QPair<QString,QString> data = graphValuesOpen[i];
-        qDebug()<<data.first <<" - "<<data.second;
+    for (int i=0; i<graphValuesHUF.size(); i++){
+        QPair<QString,QString> data = graphValuesHUF[i];
+       // qDebug()<<data.first <<" - "<<data.second;
+        float list=data.second.toFloat();
+        QDateTime xAxisValue; xAxisValue.setDate(QDate::fromString(data.first,"yyyy-MM-dd"));
+        xAxisValue.toMSecsSinceEpoch();
+        emit valueUpdated(QVariant(xAxisValue),QVariant(list));
     }
 
-//    for (int i=0; i<graphValuesVolume.size(); i++){
-//        QPair<QString,QString> data = graphValuesVolume[i];
-//        qDebug()<<data.first <<" - "<<data.second;
-//    }
+    for (int i=0; i<graphValuesVolume.size(); i++){
+        QPair<QString,QString> data = graphValuesVolume[i];
+        float list = data.second.toFloat();
+        QDateTime xAxisValue; xAxisValue.setDate(QDate::fromString(data.first,"yyyy-MM-dd"));
+        xAxisValue.toMSecsSinceEpoch();
+        emit valueUpdated2(QVariant(xAxisValue),QVariant(list));
+    }
+
+    for (int i=0; i<graphValuesUSD.size(); i++){
+        QPair<QString,QString> data = graphValuesUSD[i];
+        float list=data.second.toFloat();
+        QDateTime xAxisValue; xAxisValue.setDate(QDate::fromString(data.first,"yyyy-MM-dd"));
+        xAxisValue.toMSecsSinceEpoch();
+        emit valueUpdated3(QVariant(xAxisValue),QVariant(list));
+    }
 
 }
 

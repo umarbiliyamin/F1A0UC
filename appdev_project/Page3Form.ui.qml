@@ -5,9 +5,22 @@ import QtCharts 2.2
 
 Item {
     id: item1
-    property alias button1: button1
     property alias columnLayout: columnLayout
     property alias chartView: chartView
+
+    Connections {
+        target: netManager
+        onValueUpdated3: {
+            y=y/100;
+            series3.append(x, y);
+            if (x>xAxis.max){
+                xAxis.max = x
+            }
+            if (y>yAxis.max){
+                yAxis.max = y
+            }
+        }
+    }
 
     ColumnLayout {
         id: columnLayout
@@ -21,37 +34,53 @@ Item {
             Text {
                 id: text1
                 color: "#e91e1e"
-                text: qsTr("Digital Currencies Market Cap - Daily")
+                text: qsTr("Daily BTC - USD Rates")
                 font.pointSize: 20
                 font.italic: true
             }
         }
 
-        RowLayout {
-            anchors.bottom: parent.bottom
-            anchors.bottomMargin: 10
-            anchors.horizontalCenter: parent.horizontalCenter
-            Button {
-                id: button1
-                text: qsTr("Refresh")
-            }
-        }
     }
     Item {
         id: item2
         x: 0
+        y:58
         width: parent.width
-
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 40
         anchors.top: parent.top
         anchors.topMargin: 40
+
         ChartView {
             id: chartView
-            title: "Bitcoin Market Cap"
+            title: "Bitcoin-USD chart"
             anchors.fill: parent
+            ValueAxis{
+                id:yAxis
+                titleText: "*100 USD"
+                titleVisible: true
+                gridVisible: true
+                tickCount: 11
+                min:0
+                max:100
+
+
+            }
+            DateTimeAxis{
+                id:xAxis
+                tickCount: 20
+                visible: true
+                labelsAngle: 90
+                gridVisible: true
+                format: "yyyy-MM-dd"
+                min: "2015-08-01"
+                max: "2016-12-01"
+
+            }
             LineSeries {
-                id: series
+                id: series3
+                axisX: xAxis
+                axisY: yAxis
                 name: "lineseries3"
                 visible: true
             }

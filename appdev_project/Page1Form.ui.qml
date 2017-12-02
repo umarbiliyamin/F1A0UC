@@ -5,8 +5,21 @@ import QtCharts 2.2
 
 Item {
     id: item1
-    property alias button1: button1
     property alias chartView: chartView
+
+    Connections {
+        target: netManager
+        onValueUpdated: {
+            y = y/1000;
+            series.append(x, y);
+            if (x>xAxis.max){
+                xAxis.max = x
+            }
+            if (y>yAxis.max){
+                yAxis.max = y
+            }
+        }
+    }
 
     ColumnLayout {
         id: columnLayout
@@ -19,21 +32,10 @@ Item {
             Text {
                 id: text1
                 color: "#e91e1e"
-                text: qsTr("Digital Currencies (HUF) - Daily")
+                text: qsTr("Daily BTC - HUF Rates")
                 z: 1
                 font.italic: true
                 font.pointSize: 20
-            }
-        }
-
-        RowLayout {
-            anchors.bottom: parent.bottom
-            anchors.bottomMargin: 10
-            anchors.horizontalCenter: parent.horizontalCenter
-            Button {
-                id: button1
-                text: qsTr("Refresh")
-                Layout.alignment: Qt.AlignLeft | Qt.AlignBottom
             }
         }
     }
@@ -47,12 +49,38 @@ Item {
         anchors.topMargin: 40
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 40
+
         ChartView {
             id: chartView
             title: "Bitcoin-HUF chart"
             anchors.fill: parent
+            ValueAxis{
+                id:yAxis
+                titleText: "*1000 HUF"
+                titleVisible: true
+                gridVisible: true
+                tickCount: 11
+                min:0
+                max:1000
+
+
+            }
+            DateTimeAxis{
+                id:xAxis
+                tickCount: 20
+                visible: true
+                labelsAngle: 90
+                gridVisible: true
+                format: "yyyy-MM-dd"
+                min: "2015-08-01"
+                max: "2016-12-01"
+
+            }
+
             LineSeries {
                 id: series
+                axisX: xAxis
+                axisY:yAxis
                 name: "lineseries1"
                 visible: true
             }

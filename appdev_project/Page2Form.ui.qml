@@ -5,8 +5,19 @@ import QtCharts 2.2
 
 Item {
     id: item1
-    property alias button1: button1
     property alias chartView: chartView
+    Connections {
+        target: netManager
+        onValueUpdated2: {
+            series2.append(x, y);
+            if (x>xAxis.max){
+                xAxis.max = x
+            }
+            if (y>yAxis.max){
+                yAxis.max = y
+            }
+        }
+    }
 
     ColumnLayout {
         id: columnLayout
@@ -24,18 +35,6 @@ Item {
                 font.pointSize: 20
             }
         }
-
-        RowLayout {
-            anchors.bottom: parent.bottom
-            anchors.bottomMargin: 10
-            anchors.horizontalCenter: parent.horizontalCenter
-            Button {
-                id: button1
-                text: qsTr("Refresh")
-                Layout.fillHeight: false
-                Layout.fillWidth: false
-            }
-        }
     }
     Item {
         id: item2
@@ -50,10 +49,34 @@ Item {
             id: chartView
             title: "Bitcoin Daily Volume"
             anchors.fill: parent
+
+            ValueAxis{
+                id:yAxis
+                titleText: "*1000 HUF"
+                titleVisible: true
+                gridVisible: true
+                tickCount: 11
+                min:0
+                max:2
+
+            }
+            DateTimeAxis{
+                id:xAxis
+                tickCount: 20
+                visible: true
+                labelsAngle: 90
+                gridVisible: true
+                format: "yyyy-MM-dd"
+                min: "2015-08-01"
+                max: "2016-12-01"
+
+            }
             LineSeries {
-                id: series
+                id: series2
                 name: "lineseries2"
                 visible: true
+                axisX: xAxis
+                axisY: yAxis
             }
         }
     }

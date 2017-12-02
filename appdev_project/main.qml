@@ -15,8 +15,7 @@ ApplicationWindow {
         anchors.fill: parent
         currentIndex: tabBar.currentIndex
 
-        Page1 {
-
+        Page1Form {
 
         }
 
@@ -30,6 +29,19 @@ ApplicationWindow {
 
 
     }
+    RowLayout {
+        anchors.bottom: tabBar.top
+        anchors.bottomMargin: 10
+        anchors.horizontalCenter: parent.horizontalCenter
+        Button {
+            id: button1
+            text: qsTr("Refresh")
+        }
+        Button {
+            id: button2
+            text: qsTr("Save")
+        }
+    }
 
     footer: TabBar {
         id: tabBar
@@ -41,7 +53,7 @@ ApplicationWindow {
             text: qsTr("BitCoin Volume")
         }
         TabButton {
-            text: qsTr("BitCoin Market Cap")
+            text: qsTr("BitCoin - USD")
         }
     }
 }

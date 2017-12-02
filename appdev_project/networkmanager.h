@@ -3,6 +3,7 @@
 
 #include <QNetworkAccessManager>
 #include <QObject>
+#include <QVariant>
 
 //header file providing definitions for the functions, signals and slots
 class NetworkManager : public QObject
@@ -13,11 +14,14 @@ class NetworkManager : public QObject
 public:
     explicit NetworkManager(QObject *parent = nullptr);
     void loadWebPage();
-
 signals:
+    void valueUpdated(QVariant x, QVariant y);
+    void valueUpdated2(QVariant x, QVariant y);
+    void valueUpdated3(QVariant x, QVariant y);
 
 public slots:
     void replyFinished(QNetworkReply *reply);
+
 };
 
 #endif // NETWORKMANAGER_H
