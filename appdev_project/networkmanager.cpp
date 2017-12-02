@@ -2,6 +2,8 @@
 #include <QNetworkReply>
 #include <QNetworkRequest>
 
+#include <QDir>
+#include <QFile>
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -34,6 +36,16 @@ void NetworkManager::loadWebPage(){
 void NetworkManager::replyFinished(QNetworkReply *reply)
 {
     QByteArray webData = reply->readAll();
+
+    // Store requested data in a file
+    QFile *file = new QFile(QDir::currentPath() + "\\BITCOINDATA.txt");
+    if(file->open(QFile::Append))
+    {
+      file->write(webData);
+      file->flush();
+      file->close();
+    }
+    delete file;
 
     QList<QPair<QString,QString>> graphValuesHUF;
     QList<QPair<QString,QString>> graphValuesVolume;

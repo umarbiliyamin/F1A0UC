@@ -9,11 +9,11 @@ Item {
     Connections {
         target: netManager
         onValueUpdated2: {
-            series2.append(x, y);
-            if (x>xAxis.max){
+            series2.append(x, y)
+            if (x > xAxis.max) {
                 xAxis.max = x
             }
-            if (y>yAxis.max){
+            if (y > yAxis.max) {
                 yAxis.max = y
             }
         }
@@ -30,7 +30,7 @@ Item {
             Text {
                 id: text1
                 color: "#e91e1e"
-                text: qsTr("Digital Currencies Volume - Daily")
+                text: qsTr("BITCOIN Volume - Daily")
                 font.italic: true
                 font.pointSize: 20
             }
@@ -50,18 +50,17 @@ Item {
             title: "Bitcoin Daily Volume"
             anchors.fill: parent
 
-            ValueAxis{
-                id:yAxis
-                titleText: "*1000 HUF"
+            ValueAxis {
+                id: yAxis
+                titleText: "Volume of trade"
                 titleVisible: true
                 gridVisible: true
                 tickCount: 11
-                min:0
-                max:2
-
+                min: 0
+                max: 2
             }
-            DateTimeAxis{
-                id:xAxis
+            DateTimeAxis {
+                id: xAxis
                 tickCount: 20
                 visible: true
                 labelsAngle: 90
@@ -69,11 +68,10 @@ Item {
                 format: "yyyy-MM-dd"
                 min: "2015-08-01"
                 max: "2016-12-01"
-
             }
             LineSeries {
                 id: series2
-                name: "lineseries2"
+                name: "BTC volume series"
                 visible: true
                 axisX: xAxis
                 axisY: yAxis

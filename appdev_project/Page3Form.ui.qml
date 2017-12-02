@@ -11,12 +11,12 @@ Item {
     Connections {
         target: netManager
         onValueUpdated3: {
-            y=y/100;
-            series3.append(x, y);
-            if (x>xAxis.max){
+            y = y / 100
+            series3.append(x, y)
+            if (x > xAxis.max) {
                 xAxis.max = x
             }
-            if (y>yAxis.max){
+            if (y > yAxis.max) {
                 yAxis.max = y
             }
         }
@@ -39,12 +39,11 @@ Item {
                 font.italic: true
             }
         }
-
     }
     Item {
         id: item2
         x: 0
-        y:58
+        y: 58
         width: parent.width
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 40
@@ -55,19 +54,17 @@ Item {
             id: chartView
             title: "Bitcoin-USD chart"
             anchors.fill: parent
-            ValueAxis{
-                id:yAxis
+            ValueAxis {
+                id: yAxis
                 titleText: "*100 USD"
                 titleVisible: true
                 gridVisible: true
                 tickCount: 11
-                min:0
-                max:100
-
-
+                min: 0
+                max: 100
             }
-            DateTimeAxis{
-                id:xAxis
+            DateTimeAxis {
+                id: xAxis
                 tickCount: 20
                 visible: true
                 labelsAngle: 90
@@ -75,13 +72,12 @@ Item {
                 format: "yyyy-MM-dd"
                 min: "2015-08-01"
                 max: "2016-12-01"
-
             }
             LineSeries {
                 id: series3
                 axisX: xAxis
                 axisY: yAxis
-                name: "lineseries3"
+                name: "BTC-USD series"
                 visible: true
             }
         }

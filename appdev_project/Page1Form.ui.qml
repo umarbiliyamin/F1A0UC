@@ -10,12 +10,12 @@ Item {
     Connections {
         target: netManager
         onValueUpdated: {
-            y = y/1000;
-            series.append(x, y);
-            if (x>xAxis.max){
+            y = y / 1000
+            series.append(x, y)
+            if (x > xAxis.max) {
                 xAxis.max = x
             }
-            if (y>yAxis.max){
+            if (y > yAxis.max) {
                 yAxis.max = y
             }
         }
@@ -45,6 +45,7 @@ Item {
         x: 0
         y: 58
         width: parent.width
+        height: parent.height
         anchors.top: parent.top
         anchors.topMargin: 40
         anchors.bottom: parent.bottom
@@ -54,19 +55,18 @@ Item {
             id: chartView
             title: "Bitcoin-HUF chart"
             anchors.fill: parent
-            ValueAxis{
-                id:yAxis
+            theme: ChartView.ChartThemeLight
+            ValueAxis {
+                id: yAxis
                 titleText: "*1000 HUF"
                 titleVisible: true
                 gridVisible: true
                 tickCount: 11
-                min:0
-                max:1000
-
-
+                min: 0
+                max: 1000
             }
-            DateTimeAxis{
-                id:xAxis
+            DateTimeAxis {
+                id: xAxis
                 tickCount: 20
                 visible: true
                 labelsAngle: 90
@@ -74,14 +74,13 @@ Item {
                 format: "yyyy-MM-dd"
                 min: "2015-08-01"
                 max: "2016-12-01"
-
             }
 
             LineSeries {
                 id: series
                 axisX: xAxis
-                axisY:yAxis
-                name: "lineseries1"
+                axisY: yAxis
+                name: "BTC-HUF series"
                 visible: true
             }
         }
