@@ -17,7 +17,7 @@ public:
 signals:
     void valueUpdated(QVariant x, QVariant y);
     void valueUpdated2(QVariant x, QVariant y);
-    void valueUpdated3(QVariant x, QVariant y);
+    void valueUpdated3(QVariant x, QVariant y);//signals for the QMLs
 
 public slots:
     void replyFinished(QNetworkReply *reply);
